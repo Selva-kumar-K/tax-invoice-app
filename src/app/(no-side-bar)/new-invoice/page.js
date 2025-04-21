@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "New Invoice - Invoices App",
+};
+
 export default function page() {
   return (
     <div className=" flex flex-1 justify-center py-5 max-w-[480px] mx-auto">

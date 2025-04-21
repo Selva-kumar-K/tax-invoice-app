@@ -1,3 +1,6 @@
+export const metadata = {
+  title: "Invoices - Invoices App",
+};
 export default function page() {
   return (
     <>
