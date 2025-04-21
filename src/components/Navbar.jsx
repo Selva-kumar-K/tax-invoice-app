@@ -26,9 +26,11 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="flex gap-2">
-          <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#019863] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]">
-            <span className="truncate">Create Invoice</span>
-          </button>
+          <Link href="/new-invoice">
+            <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#019863] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]">
+              <span className="truncate">Create Invoice</span>
+            </button>
+          </Link>
         </div>
       </header>
     </>

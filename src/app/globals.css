@@ -1,8 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&family=Public+Sans%3Awght%40400%3B500%3B700%3B900");
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-public: "Public Sans", "Noto Sans", sans-serif;
+  --font-sans: var(--font-public-sans);
 }
