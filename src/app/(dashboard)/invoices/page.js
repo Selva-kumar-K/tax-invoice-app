@@ -1,7 +1,7 @@
 "use client";
 import { useContext } from "react";
 import { InvoicesDataContext } from "@/app/InvoicesDataProvider";
-import InvoicesTable from "@/components/InvoicesTable";
+import InvoicesTable from "./../../../components/InvoicesTable";
 
 // export const metadata = {
 //   title: "Invoices - Invoices App",

@@ -3,8 +3,9 @@
 import React from "react";
 import { useContext } from "react";
 import { InvoicesDataContext } from "@/app/InvoicesDataProvider";
+import { redirect } from "next/navigation";
 export default function InvoicesTable() {
-  const { invoicesData } = useContext(InvoicesDataContext);
+  const { invoicesData, setInvoicesData } = useContext(InvoicesDataContext);
   console.log(invoicesData);
 
   const filterInvoices = invoicesData.filter((_, index) => {
@@ -41,7 +42,7 @@ export default function InvoicesTable() {
       </thead>
       <tbody>
         {filterInvoices.map(
-          ({ customer, email, amount, date, status }, index) => (
+          ({ id, customer, email, amount, date, status }, index) => (
             <tr key={index} className="border-t border-t-[#E9DFCE]">
               <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-120 h-[72px] px-4 py-2 w-[400px] text-[#1C160C] text-sm font-normal leading-normal">
                 {customer}
@@ -62,8 +63,17 @@ export default function InvoicesTable() {
               </td>
               <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-720 h-[72px] px-4 py-2 w-60 text-[#A18249] text-sm font-bold leading-normal tracking-[0.015em]">
                 <div className="flex items-center gap-2">
-                  <span>Edit</span>
-                  <span>Delete</span>
+                  <button
+                    className="cursor-pointer"
+                    onClick={() => redirect("/invoices/new-invoice")}
+                  >
+                    Edit
+                  </button>
+                  <button className="cursor-pointer" onClick={() => {
+                    setInvoicesData(invoicesData.filter((invoice, index) => invoice.id !== id));
+                  }}>
+                    Delete
+                  </button>
                 </div>
               </td>
             </tr>
