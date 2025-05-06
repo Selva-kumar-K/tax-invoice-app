@@ -1,6 +1,7 @@
 import { Public_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { InvoicesDataProvider } from "./InvoicesDataProvider";
 
 const publicSans = Public_Sans({
   variable: "--font-public-sans",
@@ -14,15 +15,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`antialiased ${publicSans.variable}`}>
-        <div className="relative flex size-full min-h-screen flex-col bg-[#FFFFFF] group/design-root overflow-x-hidden antialiased font-public">
-          <div className="layout-container flex h-full grow flex-col">
-            <Navbar />
-            {children}
+    <InvoicesDataProvider>
+      <html lang="en">
+        <body className={`antialiased ${publicSans.variable}`}>
+          <div className="relative flex size-full min-h-screen flex-col bg-[#FFFFFF] group/design-root overflow-x-hidden antialiased font-public">
+            <div className="layout-container flex h-full grow flex-col">
+              <Navbar />
+              {children}
+            </div>
           </div>
-        </div>
-      </body>
-    </html>
+        </body>
+      </html>
+    </InvoicesDataProvider>
   );
 }

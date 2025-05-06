@@ -1,7 +1,13 @@
-export const metadata = {
-  title: "Invoices - Invoices App",
-};
+"use client";
+import { useContext } from "react";
+import { InvoicesDataContext } from "@/app/InvoicesDataProvider";
+import InvoicesTable from "@/components/InvoicesTable";
+
+// export const metadata = {
+//   title: "Invoices - Invoices App",
+// };
 export default function page() {
+  // const { invoicesData } = useContext(InvoicesDataContext);
   return (
     <>
       <div className="flex flex-wrap justify-between gap-3 p-4">
@@ -38,182 +44,7 @@ export default function page() {
       </div>
       <div className="px-4 py-3 @container">
         <div className="flex overflow-hidden rounded-xl border border-[#E9DFCE] bg-[#FFFFFF]">
-          <table className="flex-1">
-            <thead>
-              <tr className="bg-[#FFFFFF]">
-                <th className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-120 px-4 py-3 text-left text-[#1C160C] w-[400px] text-sm font-medium leading-normal">
-                  Customer
-                </th>
-                <th className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-240 px-4 py-3 text-left text-[#1C160C] w-[400px] text-sm font-medium leading-normal">
-                  Email
-                </th>
-                <th className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-360 px-4 py-3 text-left text-[#1C160C] w-[400px] text-sm font-medium leading-normal">
-                  Amount
-                </th>
-                <th className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-480 px-4 py-3 text-left text-[#1C160C] w-[400px] text-sm font-medium leading-normal">
-                  Date
-                </th>
-                <th className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-600 px-4 py-3 text-left text-[#1C160C] w-60 text-sm font-medium leading-normal">
-                  Status
-                </th>
-                <th className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-720 px-4 py-3 text-left w-60 text-[#A18249] text-sm font-medium leading-normal">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t border-t-[#E9DFCE]">
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-120 h-[72px] px-4 py-2 w-[400px] text-[#1C160C] text-sm font-normal leading-normal">
-                  Amy Burns
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-240 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  amy@burns.com
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-360 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  $51.00
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-480 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  Oct 27, 2024
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#F4EFE6] text-[#1C160C] text-sm font-medium leading-normal w-full">
-                    <span className="truncate">Paid</span>
-                  </button>
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-720 h-[72px] px-4 py-2 w-60 text-[#A18249] text-sm font-bold leading-normal tracking-[0.015em]">
-                  <div className="flex items-center gap-2">
-                    <span>Edit</span>
-                    <span>Delete</span>
-                  </div>
-                </td>
-              </tr>
-              <tr className="border-t border-t-[#E9DFCE]">
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-120 h-[72px] px-4 py-2 w-[400px] text-[#1C160C] text-sm font-normal leading-normal">
-                  Amy Burns
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-240 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  amy@burns.com
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-360 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  $10.50
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-480 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  Oct 25, 2024
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#F4EFE6] text-[#1C160C] text-sm font-medium leading-normal w-full">
-                    <span className="truncate">Pending</span>
-                  </button>
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-720 h-[72px] px-4 py-2 w-60 text-[#A18249] text-sm font-bold leading-normal tracking-[0.015em]">
-                  <div className="flex items-center gap-2">
-                    <span>Edit</span>
-                    <span>Delete</span>
-                  </div>
-                </td>
-              </tr>
-              <tr className="border-t border-t-[#E9DFCE]">
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-120 h-[72px] px-4 py-2 w-[400px] text-[#1C160C] text-sm font-normal leading-normal">
-                  Michael Novotny
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-240 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  michael@novotny.com
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-360 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  $150.00
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-480 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  Oct 24, 2024
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#F4EFE6] text-[#1C160C] text-sm font-medium leading-normal w-full">
-                    <span className="truncate">Pending</span>
-                  </button>
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-720 h-[72px] px-4 py-2 w-60 text-[#A18249] text-sm font-bold leading-normal tracking-[0.015em]">
-                  <div className="flex items-center gap-2">
-                    <span>Edit</span>
-                    <span>Delete</span>
-                  </div>
-                </td>
-              </tr>
-              <tr className="border-t border-t-[#E9DFCE]">
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-120 h-[72px] px-4 py-2 w-[400px] text-[#1C160C] text-sm font-normal leading-normal">
-                  Michael Novotny
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-240 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  michael@novotny.com
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-360 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  $448.00
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-480 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  Sep 10, 2023
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#F4EFE6] text-[#1C160C] text-sm font-medium leading-normal w-full">
-                    <span className="truncate">Paid</span>
-                  </button>
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-720 h-[72px] px-4 py-2 w-60 text-[#A18249] text-sm font-bold leading-normal tracking-[0.015em]">
-                  <div className="flex items-center gap-2">
-                    <span>Edit</span>
-                    <span>Delete</span>
-                  </div>
-                </td>
-              </tr>
-              <tr className="border-t border-t-[#E9DFCE]">
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-120 h-[72px] px-4 py-2 w-[400px] text-[#1C160C] text-sm font-normal leading-normal">
-                  Delba de Oliveira
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-240 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  delba@oliveira.com
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-360 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  $5.00
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-480 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  Aug 19, 2023
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#F4EFE6] text-[#1C160C] text-sm font-medium leading-normal w-full">
-                    <span className="truncate">Paid</span>
-                  </button>
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-720 h-[72px] px-4 py-2 w-60 text-[#A18249] text-sm font-bold leading-normal tracking-[0.015em]">
-                  <div className="flex items-center gap-2">
-                    <span>Edit</span>
-                    <span>Delete</span>
-                  </div>
-                </td>
-              </tr>
-              <tr className="border-t border-t-[#E9DFCE]">
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-120 h-[72px] px-4 py-2 w-[400px] text-[#1C160C] text-sm font-normal leading-normal">
-                  Balazs Orban
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-240 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  balazs@orban.com
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-360 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  $345.77
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-480 h-[72px] px-4 py-2 w-[400px] text-[#A18249] text-sm font-normal leading-normal">
-                  Aug 5, 2023
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-600 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#F4EFE6] text-[#1C160C] text-sm font-medium leading-normal w-full">
-                    <span className="truncate">Pending</span>
-                  </button>
-                </td>
-                <td className="table-ba43979f-a7f1-4aef-8c36-e7dd93247afd-column-720 h-[72px] px-4 py-2 w-60 text-[#A18249] text-sm font-bold leading-normal tracking-[0.015em]">
-                  <div className="flex items-center gap-2">
-                    <span>Edit</span>
-                    <span>Delete</span>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+         <InvoicesTable />
         </div>
         <style
           dangerouslySetInnerHTML={{
