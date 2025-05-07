@@ -65,13 +65,20 @@ export default function InvoicesTable() {
                 <div className="flex items-center gap-2">
                   <button
                     className="cursor-pointer"
-                    onClick={() => redirect("/invoices/new-invoice")}
+                    onClick={() => redirect(`/invoices/${id}`)}
                   >
                     Edit
                   </button>
-                  <button className="cursor-pointer" onClick={() => {
-                    setInvoicesData(invoicesData.filter((invoice, index) => invoice.id !== id));
-                  }}>
+                  <button
+                    className="cursor-pointer"
+                    onClick={() => {
+                      setInvoicesData(
+                        invoicesData.filter(
+                          (invoice, index) => invoice.id !== id
+                        )
+                      );
+                    }}
+                  >
                     Delete
                   </button>
                 </div>

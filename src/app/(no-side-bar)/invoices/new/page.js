@@ -1,4 +1,4 @@
-import Form from "./../../../components/Form";
+import Form from "../../../../components/Form";
 
 export const metadata = {
   title: "New Invoice - Invoices App",

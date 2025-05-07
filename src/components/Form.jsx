@@ -1,4 +1,15 @@
-export default function Form({title}) {
+"use client";
+
+import { useState } from "react";
+
+export default function Form({ title, id }) {
+  // const [forms, setForms] = useState({
+  //   name: "",
+  //   email: "",
+  //   amount: "",
+  //   date: "",
+  //   status: "",
+  // });
   return (
     <div className=" flex flex-1 justify-center py-5 max-w-[480px] mx-auto">
       <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
