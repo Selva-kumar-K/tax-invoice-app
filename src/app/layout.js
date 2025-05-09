@@ -1,6 +1,7 @@
 import { Public_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Navbar from "./../components/Navbar";
+
 import { InvoicesDataProvider } from "./InvoicesDataProvider";
 
 const publicSans = Public_Sans({

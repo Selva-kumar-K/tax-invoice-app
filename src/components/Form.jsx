@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useParams } from "next/navigation";
+import { useContext } from "react";
+import { InvoicesDataContext } from "../app/InvoicesDataProvider";
 
-export default function Form({ title, id }) {
-  // const [forms, setForms] = useState({
-  //   name: "",
-  //   email: "",
-  //   amount: "",
-  //   date: "",
-  //   status: "",
-  // });
+export default function Form({ title }) {
+  const { id } = useParams();
+  const { invoicesData, setInvoicesData } = useContext(InvoicesDataContext);
+  const data = invoicesData.filter(invoice => invoice.id == id)[0];
+  console.log(data);
+  
+
   return (
     <div className=" flex flex-1 justify-center py-5 max-w-[480px] mx-auto">
       <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
