@@ -1,15 +1,16 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { InvoicesDataContext } from "../app/InvoicesDataProvider";
+import { useRouter } from "next/navigation";
 
 export default function Form({ title }) {
+  const router = useRouter();
   const { id } = useParams();
   const { invoicesData, setInvoicesData } = useContext(InvoicesDataContext);
-  const data = invoicesData.filter(invoice => invoice.id == id)[0];
-  console.log(data);
-  
+  const data = invoicesData.filter((invoice) => invoice.id == id)[0];
+  const [forms, setForms] = useState(data);
 
   return (
     <div className=" flex flex-1 justify-center py-5 max-w-[480px] mx-auto">
@@ -26,7 +27,10 @@ export default function Form({ title }) {
             </p>
             <input
               className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#1C160C] focus:outline-0 focus:ring-0 border-none bg-[#F4EFE6] focus:border-none h-14 placeholder:text-[#A18249] p-4 text-base font-normal leading-normal"
-              defaultValue=""
+              value={forms.customer}
+              onChange={(event) => {
+                setForms({ ...forms, customer: event.target.value });
+              }}
             />
           </label>
           <label className="flex flex-col min-w-40 flex-1">
@@ -36,7 +40,10 @@ export default function Form({ title }) {
             <input
               type="email"
               className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#1C160C] focus:outline-0 focus:ring-0 border-none bg-[#F4EFE6] focus:border-none h-14 placeholder:text-[#A18249] p-4 text-base font-normal leading-normal"
-              defaultValue=""
+              value={forms.email}
+              onChange={(event) => {
+                setForms({ ...forms, email: event.target.value });
+              }}
             />
           </label>
         </div>
@@ -49,7 +56,10 @@ export default function Form({ title }) {
               type="number"
               step="0.01"
               className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#1C160C] focus:outline-0 focus:ring-0 border-none bg-[#F4EFE6] focus:border-none h-14 placeholder:text-[#A18249] p-4 text-base font-normal leading-normal"
-              defaultValue=""
+              value={forms.amount}
+              onChange={(event) => {
+                setForms({ ...forms, amount: event.target.value });
+              }}
             />
           </label>
           <label className="flex flex-col min-w-40 flex-1">
@@ -59,7 +69,10 @@ export default function Form({ title }) {
             <input
               type="date"
               className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#1C160C] focus:outline-0 focus:ring-0 border-none bg-[#F4EFE6] focus:border-none h-14 placeholder:text-[#A18249] p-4 text-base font-normal leading-normal"
-              defaultValue=""
+              value={forms.date}
+              onChange={(event) => {
+                setForms({ ...forms, date: event.target.value });
+              }}
             />
           </label>
         </div>
@@ -70,12 +83,26 @@ export default function Form({ title }) {
             </p>
             <input
               className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#1C160C] focus:outline-0 focus:ring-0 border-none bg-[#F4EFE6] focus:border-none h-14 placeholder:text-[#A18249] p-4 text-base font-normal leading-normal"
-              defaultValue=""
+              value={forms.status}
+              onChange={(event) => {
+                setForms({ ...forms, status: event.target.value });
+              }}
             />
           </label>
         </div>
         <div className="flex px-4 py-3">
-          <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 flex-1 bg-[#019863] text-[#FFFFFF] text-base font-bold leading-normal tracking-[0.015em]">
+          <button
+            className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 flex-1 bg-[#019863] text-[#FFFFFF] text-base font-bold leading-normal tracking-[0.015em]"
+            onClick={() => {
+              setInvoicesData(
+                invoicesData.map((invoice) =>
+                  invoice.id === id ? { ...invoice, ...forms } : invoice
+                )
+              );
+
+              router.push("/invoices");
+            }}
+          >
             <span className="truncate">Save Changes</span>
           </button>
         </div>
