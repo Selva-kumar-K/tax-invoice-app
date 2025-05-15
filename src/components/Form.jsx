@@ -9,6 +9,7 @@ export default function Form({ title }) {
   const router = useRouter();
   const { id } = useParams();
   const { invoicesData, setInvoicesData } = useContext(InvoicesDataContext);
+
   const data = invoicesData.filter((invoice) => invoice.id == id)[0];
   const [forms, setForms] = useState(data);
 
@@ -94,11 +95,14 @@ export default function Form({ title }) {
           <button
             className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 flex-1 bg-[#019863] text-[#FFFFFF] text-base font-bold leading-normal tracking-[0.015em]"
             onClick={() => {
-              setInvoicesData(
-                invoicesData.map((invoice) =>
-                  invoice.id === id ? { ...invoice, ...forms } : invoice
-                )
-              );
+              setInvoicesData((prev) => {
+                return prev.map((invoice, index) => {
+                  if (invoice.id === forms.id) {
+                    return { ...invoice, ...forms };
+                  }
+                  return invoice;
+                });
+              });
 
               router.push("/invoices");
             }}
